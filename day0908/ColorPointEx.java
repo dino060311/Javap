@@ -1,3 +1,5 @@
+package day0908;
+
 class Point {
     private int x, y;
 

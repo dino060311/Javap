@@ -1,3 +1,5 @@
+package day0908;
+
 import java.util.Scanner;
 
 class BaseArray {
@@ -26,31 +28,35 @@ class BaseArray {
     }
 }
 
-public class BinaryArray extends BaseArray {
-    private int threshold;
+public class SortedArray extends BaseArray {
 
-    public BinaryArray(int size, int threshold) {
+    public SortedArray(int size) {
         super(size);
-        this.threshold = threshold;
     }
 
     public void add(int n) {
-        if (n > threshold)
-            super.add(1);
-        else
-            super.add(0);
+        if (nextIndex == array.length)
+            return;
+
+        int i = nextIndex - 1;
+        while (i >= 0 && array[i] > n) {
+            array[i + 1] = array[i];
+            i--;
+        }
+        array[i + 1] = n;
+        nextIndex++;
     }
 
     public static void main(String[] args) {
-        int threshold = 50;
-        BinaryArray bArray = new BinaryArray(10, threshold);
+        SortedArray sArray = new SortedArray(10);
         Scanner scanner = new Scanner(System.in);
+
         System.out.print(">>");
-        for (int i = 0; i < bArray.length(); i++) {
+        for (int i = 0; i < sArray.length(); i++) {
             int n = scanner.nextInt();
-            bArray.add(n);
+            sArray.add(n);
         }
-        bArray.print();
+        sArray.print();
         scanner.close();
     }
 }
