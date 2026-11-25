@@ -2,11 +2,11 @@ package day0908;
 
 import java.util.Scanner;
 
-class BaseArray {
+class BaseArray1 {
     protected int array[];
     protected int nextIndex = 0;
 
-    public BaseArray(int size) {
+    public BaseArray1(int size) {
         array = new int[size];
     }
 
@@ -28,7 +28,7 @@ class BaseArray {
     }
 }
 
-public class SortedArray extends BaseArray {
+public class SortedArray extends BaseArray1 {
 
     public SortedArray(int size) {
         super(size);
